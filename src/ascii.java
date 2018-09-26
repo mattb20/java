@@ -14,6 +14,18 @@ class SubStringCons{
         List<String> strings = Arrays.asList("this", "is", "a", "long", "list", "of", "strings", "to", "use", "as", "a", "demo");
 
         System.out.println(hasTenDigits("0123456789"));
+
+        List<String> strings = Arrays.asList("this", null, "is",
+                "a", null, "list", "of", null "strings");
+        List <String> nonNullStrings = strings.stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        System.out.println(nonNullStrings);
+        Random r = new Random();
+        r.inst(5)
+                .sorted()
+                .forEach(System.out::println);
     }
 
     private static boolean hasTenDigits(String s) {
