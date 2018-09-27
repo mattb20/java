@@ -1,6 +1,8 @@
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class SubStringCons{
     public static void main(String args[]) {
@@ -39,6 +41,17 @@ class SubStringCons{
 
         return cache.computeIfAbsent(i, n -> fib(n - 2).add(fib(n-1)));
 
+    }
+
+    public Map<String, Integer> countWords(String passage, String... strings) {
+        Map <String, Integer> wordCounts = new HashMap<>();
+
+        Arrays.stream(strings).forEach(s -> wordCounts.put(s, 0));
+
+        Arrays.stream(passage.split(" ")).forEach(word ->
+        wordCounts.computeIfPresent(word, (key, val) -> val + 1));
+
+        return wordCounts;
     }
 }
 
