@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,6 +31,14 @@ class SubStringCons{
 
     private static boolean hasTenDigits(String s) {
         return s.matches(".*[0-9]{10}.*");
+    }
+
+    private BigInteger fib(long i) {
+        if (i == 0) return BigInteger.ZERO;
+        if (i == 1) return BigInteger.ONE;
+
+        return cache.computeIfAbsent(i, n -> fib(n - 2).add(fib(n-1)));
+
     }
 }
 
