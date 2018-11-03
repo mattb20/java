@@ -63,5 +63,25 @@ class SubStringCons{
             .sorted(String::compareToIgnoreCase)
             .collect(Collectors.toList()); // method reference and equivalent lambda
 
+    List<String> names = Arrays.asList("Grace Hopper", "Barbara Liskov", "Ada Lovelace","Emmanuel Frimpong");
+
+    List<Person> people = names.stream()
+                .map(name -> new Person(name))
+                .collect(Collectors.toList());
+
+    // alternatively
+
+    List<Person> people = names.stream()
+            .map(Person::new)
+            .collect(Collectors.toList());
+
+    List<String> sorted = names.stream()
+            .sorted(Comparator.naturalOrder())
+            .collect(Collectors.toList());
+
+    sorted = names.stream()
+            .sorted(Comparator.comparing(String::toLowerCase))
+            .collect(Collectors.toList());
+
 }
 
