@@ -44,14 +44,24 @@ class SubStringCons{
     }
 
     public Map<String, Integer> countWords(String passage, String... strings) {
-        Map <String, Integer> wordCounts = new HashMap<>();
+        Map<String, Integer> wordCounts = new HashMap<>();
 
         Arrays.stream(strings).forEach(s -> wordCounts.put(s, 0));
 
         Arrays.stream(passage.split(" ")).forEach(word ->
-        wordCounts.computeIfPresent(word, (key, val) -> val + 1));
+                wordCounts.computeIfPresent(word, (key, val) -> val + 1));
 
         return wordCounts;
     }
+
+    List<String> strings = Arrays.asList("this", "is", "a", "list", "of", "strings");
+    List<String> sorted = strings.stream()
+                    .sorted((s1, s2) -> s1.compareTo(s2))
+                    .collect(Collectors.toList());
+
+    List<String> sorted = strings.stream()
+            .sorted(String::compareToIgnoreCase)
+            .collect(Collectors.toList()); // method reference and equivalent lambda
+
 }
 
