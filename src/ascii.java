@@ -87,6 +87,9 @@ class SubStringCons{
             .sorted(Comparator.comparingInt(String::length))
             .collect(Collectors.toList());
 
+    Optional<String> firstEven = Stream.of("five", "even", "length", "string", "values")
+            .filter(s -> s.length() % 2 == 0)
+            .findFirst();
 
 
 }
