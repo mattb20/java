@@ -83,5 +83,11 @@ class SubStringCons{
             .sorted(Comparator.comparing(String::toLowerCase))
             .collect(Collectors.toList());
 
+    sorted = names.stream()
+            .sorted(Comparator.comparingInt(String::length))
+            .collect(Collectors.toList());
+
+
+
 }
 
