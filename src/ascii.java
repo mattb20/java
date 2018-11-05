@@ -91,6 +91,15 @@ class SubStringCons{
             .filter(s -> s.length() % 2 == 0)
             .findFirst();
 
+    try (Steam<String> lines = Files.lines(Paths.get("/usr/share/dict/web2"))) {
+        lines.filter(s -> s.length() > 20)
+                .sorted(Comparator.comparingInt(String::length).reversed())
+                .limit(10)
+                .forEach(w -> System.out.printf("%s (%d)%n", w, w.length()));
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+
 
 }
 
